@@ -50,15 +50,6 @@ class EmployeePage {
         await this.page.click(EmployeePage.closeButton);
     }
 
-   // async getEmployeeNames() {
-        //await this.page.setDefaultTimeout(50000);
-        //await this.page.waitForSelector('.text-base.font-bold');
-        //await this.page.waitForSelector('//*[@class="text-base font-bold"]',{timeout: 10000});
-       // const nameList = await this.page.$$eval(('//*[@class="text-base font-bold"]'), ele => ele.map(e => e.textContent));
-        //const nameList = await this.page.$$eval('.text-base.font-bold', elements => elements.map(element => element.textContent));
-       // return nameList;
-    //}
-
     async getEmployeeNames() {
         let attempts = 0;
         const maxAttempts = 5;
