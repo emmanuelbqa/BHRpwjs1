@@ -17,7 +17,7 @@ class EmployeePage {
     static saveEmployeeButton = 'text="Save new employee"';
     static addAnotherEmployeeButton = 'text="Add another employee"';
     static closeButton = '[aria-label="Close modal"]';
-    static employeeClassName = '.text-base.font-bold';
+    static employeeClassName = 'xpath=//*[@class="text-base font-bold"]';
 
     async navigateToEmployeesTab() {
         await this.page.click(EmployeePage.employeesTab);
@@ -51,22 +51,8 @@ class EmployeePage {
     }
 
     async getEmployeeNames() {
-        let attempts = 0;
-        const maxAttempts = 5;
-        let nameList;
-        while (attempts < maxAttempts) {
-            try {
-                await EmployeePage.waitForSelector('//*[@class="text-base font-bold"]', { timeout: 50000 });
-                nameList = await EmployeePage.$$eval('//*[@class="text-base font-bold"]', ele => ele.map(e => e.textContent));
-                break;
-            } catch (error) {
-                attempts++;
-                console.log(`Attempt ${attempts}: Failed to find element. Retrying...`);
-            }
-        }
-        if (attempts === maxAttempts) {
-            throw new Error(`Element ${'//*[@class="text-base font-bold"]'} not found after ${maxAttempts} attempts`);
-        }
+        await this.page.waitForSelector(EmployeePage.employeeClassName);
+        const nameList = await this.page.$$eval((EmployeePage.employeeClassName), ele => ele.map(e => e.textContent));
         return nameList;
     }
 }

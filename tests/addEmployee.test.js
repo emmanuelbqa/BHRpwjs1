@@ -27,7 +27,8 @@ test('Add two Employees and Verify', async ({ page }) => {
     // Close success popup
     await employeePage.clickCloseButton();
 
-    // Verify that both employee names are in the list of employee names
-    expect(employeePage.getEmployeeNames()).toContain(`${config.employee1.firstName} ${config.employee1.lastName}`);
-    expect(employeePage.getEmployeeNames()).toContain(`${config.employee2.firstName} ${config.employee2.lastName}`);
+    //Verify that both employee names are in the list of employee names;
+    var nameList = await employeePage.getEmployeeNames();
+    expect(nameList).toContain(`${config.employee1.firstName} ${config.employee1.lastName}`);
+    expect(nameList).toContain(`${config.employee2.firstName} ${config.employee2.lastName}`);
 });
