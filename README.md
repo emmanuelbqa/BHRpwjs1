@@ -1,4 +1,9 @@
 # BHRpwjs
 Tech Task||
-The scenario has been automated such that two employees will be created and verified. The current issue is not being able to identify the [@class="text-base font-bold"] elements on my runs. This is the last step of the scenario where an array should be retrieved and asserted for the two employee names created. Multiple locators(which work fine in the DOM) have been used but to no avail.  
-Project has been integrated with Github Actions and can be run to see the error.
+Open Terminal
+Navigate to project folder
+Run 'npm install' in Terminal
+Run 'npx playwright install'
+To run the test, run 'npx playwright test' in Terminal
+
+Test can also be run via Github actions
