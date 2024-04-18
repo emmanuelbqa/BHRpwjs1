@@ -1,7 +1,8 @@
 # BHRpwjs
-**Tech Task||**
+**Tech Task**
 
 **Introduction**
+
 This test was built with Playwright JS and integrated with Github actions. The test logs in to the Bright HR web app and adds two employees. At the end of the test there is a verification step to ensure the employees have been added.
 
 **Set Up And Test Run**
