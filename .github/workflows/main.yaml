@@ -1,6 +1,9 @@
 name: Run Playwright Tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   test:
@@ -13,10 +16,12 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '14'
+        node-version: '20'
         
     - name: Install dependencies
-      run: npm install
+      run: 
+        npm install
+        npx playwright install
       
     - name: Run Playwright tests
       run: npx playwright test
